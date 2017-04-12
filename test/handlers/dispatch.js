@@ -89,9 +89,8 @@ function createServer(expectedUrl) {
     const server = http.createServer((req, res) => {
         test.equals(req.url, expectedUrl)
         res.end('ok')
-    }).listen()
-    servers.push(server)
-    return server
+    })
+    servers.push(server.listen())
 }
 
 function portOf(i) {
