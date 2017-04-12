@@ -1,2 +1,2 @@
-# api-frontdoor
-Tiny gateway component that routes requests across microservices.
+# Doorway
+Tiny, dynamically configurable gateway component that routes requests across microservices.
