@@ -1,0 +1,45 @@
+{
+  "name": "front-door",
+  "version": "0.0.1",
+  "description": "Tiny, dynamically configurable gateway component that routes requests across microservices.",
+  "main": "index.js",
+  "scripts": {
+    "test": "NODE_ENV=test tap test/*",
+    "cover": "npm test -- --cov --coverage-report=lcov"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/schwarzkopfb/doorway.git"
+  },
+  "keywords": [
+    "api",
+    "server",
+    "service",
+    "microservice",
+    "router",
+    "proxy",
+    "gateway"
+  ],
+  "author": "Balazs Schwarzkopf <schwarzkopfb@icloud.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/schwarzkopfb/doorway/issues"
+  },
+  "homepage": "https://github.com/schwarzkopfb/doorway#readme",
+  "dependencies": {
+    "accepts": "^1.3.3",
+    "basic-auth": "^1.1.0",
+    "escape-html": "^1.0.3",
+    "http-proxy": "^1.16.2",
+    "redis": "^2.7.1",
+    "strep": "^1.0.0",
+    "string-hash": "^1.1.3",
+    "wrg": "^1.0.0",
+    "wror": "^1.0.0"
+  },
+  "devDependencies": {
+    "supertest": "^3.0.0",
+    "tap": "^10.3.1",
+    "ws": "^2.2.3"
+  }
+}
