@@ -58,7 +58,7 @@ declare module 'front-door' {
     export class ForwardRule extends Rule {
         constructor(regexp: RegExp, targets: TargetList, credentials?: SecureContextOptions);
 
-        crendentials: SecureContextOptions;
+        credentials: SecureContextOptions;
         targets: TargetList;
 
         tryHandle(req: OutgoingMessage, res: IncomingMessage, href: string): boolean;
@@ -77,12 +77,16 @@ declare module 'front-door' {
     export class HttpServer extends Server {
         constructor(rules: Rule[])
 
+        rules: Rule[];
+
         onRequest(req: OutgoingMessage, res: IncomingMessage): void;
         onUpgrade(req: OutgoingMessage, socket: Socket, head: string): void;
     }
 
     export class HttpsServer extends httpsServer {
         constructor(rules: Rule[])
+
+        rules: Rule[];
 
         onRequest(req: OutgoingMessage, res: IncomingMessage): void;
         onUpgrade(req: OutgoingMessage, socket: Socket, head: string): void;
