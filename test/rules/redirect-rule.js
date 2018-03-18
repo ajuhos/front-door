@@ -8,13 +8,13 @@ const http    = require('http'),
       rule2   = RR.fromPattern('localhost*', 'http://example.com{0}'),
       server  = http.createServer(listener).listen()
       
-function listener(req, res) {
+async function listener(req, res) {
     const href = `${req.headers.host}${req.url}`,
           rule = req.method === 'GET'
               ? rule1
               : rule2
 
-    if (!rule.tryHandle(req, res, href))
+    if (!(await rule.tryHandle(req, res, href)))
         res.end('ok')
 }
 
