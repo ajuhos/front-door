@@ -45,6 +45,7 @@ declare module 'front-door' {
     export class Rule {
         constructor(regexp: RegExp);
 
+        regexp: RegExp;
         tlsCredentials: SecureContextOptions;
         tlsSecureContext: SecureContext;
 
@@ -55,7 +56,10 @@ declare module 'front-door' {
     }
 
     export class ForwardRule extends Rule {
-        constructor(regexp: RegExp, targets: TargetList, credentials?: any);
+        constructor(regexp: RegExp, targets: TargetList, credentials?: SecureContextOptions);
+
+        crendentials: SecureContextOptions;
+        targets: TargetList;
 
         tryHandle(req: OutgoingMessage, res: IncomingMessage, href: string): boolean;
         tryHandleWebSocket(req: OutgoingMessage, socket: Socket, head: string, href: string): boolean;
@@ -63,6 +67,8 @@ declare module 'front-door' {
 
     export class RedirectRule extends Rule {
         constructor(regexp: RegExp, href: string);
+
+        href: string;
 
         tryHandle(req: OutgoingMessage, res: IncomingMessage, href: string): boolean;
         tryHandleWebSocket(): never;
