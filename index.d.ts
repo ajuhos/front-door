@@ -63,8 +63,8 @@ declare module 'front-door' {
         credentials: Credentials;
         targets: TargetList;
 
-        tryHandle(req: OutgoingMessage, res: IncomingMessage, href: string): boolean;
-        tryHandleWebSocket(req: OutgoingMessage, socket: Socket, head: string, href: string): boolean;
+        tryHandle(req: OutgoingMessage, res: IncomingMessage, href: string): Promise<boolean>;
+        tryHandleWebSocket(req: OutgoingMessage, socket: Socket, head: string, href: string): Promise<boolean>;
     }
 
     export class RedirectRule extends Rule {
@@ -72,8 +72,8 @@ declare module 'front-door' {
 
         href: string;
 
-        tryHandle(req: OutgoingMessage, res: IncomingMessage, href: string): boolean;
-        tryHandleWebSocket(): never;
+        tryHandle(req: OutgoingMessage, res: IncomingMessage, href: string): Promise<boolean>;
+        tryHandleWebSocket(): Promise<never>;
     }
 
     export class HttpServer extends Server {
