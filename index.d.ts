@@ -8,7 +8,7 @@ declare module 'front-door' {
     export const version: string;
 
     export class Target {
-        constructor(list: TargetList, id: string, href: string, weight?: number, enabled?: boolean);
+        constructor(list: TargetList, id: number, href: string, weight?: number, enabled?: boolean);
         weight: number;
         available: boolean;
         enabled: boolean;
