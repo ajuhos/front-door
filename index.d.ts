@@ -16,6 +16,8 @@ declare module 'front-door' {
 
     export type BalancingMethod = { name: 'random'|'urlHash'|'roundRobin'|'sourceIpHash' }
 
+    export type Credentials = { realm: string, user: string, pass: string }
+
     export class TargetList {
         constructor(balancingMethod?: BalancingMethod);
 
@@ -56,9 +58,9 @@ declare module 'front-door' {
     }
 
     export class ForwardRule extends Rule {
-        constructor(regexp: RegExp, targets: TargetList, credentials?: SecureContextOptions);
+        constructor(regexp: RegExp, targets: TargetList, credentials?: Credentials);
 
-        credentials: SecureContextOptions;
+        credentials: Credentials;
         targets: TargetList;
 
         tryHandle(req: OutgoingMessage, res: IncomingMessage, href: string): boolean;
